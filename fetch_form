@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--make field for the Dauer - checkboxes-->
+
+<input id="summe" value="999"/><br/>
+
+<input id="firstname" value="Demo"/><br/>
+<input id="firmenName" value="Foo"/><br/>
+<input id="vat" value="DE813113094"/><br/>
+<input id="foobar2" value="Jane"/><br/>
+<input id="foobar3" value="Doe"/><br/>
+<input id="zip" placeholder="PLZ"/><br/>
+<input id="city" placeholder="Stadt"/><br/>
+<input id="street" placeholder="Strasse"/><br/>
+<input id="streetnr" placeholder="Nummer"/><br/>
+<select id="bar">
+    <option value="1234">Berlin</option>
+</select>
+
+<button onclick="clickMe();">Click me</button>
+
+<pre id="output">
+
+    <script>
+
+
+        async function postData(url = '', data = {}) {
+                // Default options are marked with *
+                const response = await fetch(url, {
+                    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                    mode: 'no-cors', // no-cors, *cors, same-origin
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Basic ' + window.btoa() # add name pass
+                    },
+
+
+                    redirect: 'follow', // manual, *follow, error
+                    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                    body: data // body data type must match "Content-Type" header
+                });
+                return response.json(); // parses JSON response into native JavaScript objects
+            }
+
+
+        function clickMe() {
+            // let template = "{    \"productDto\": {        \"productVariantId\": 1,        \"removed\": false,        \"attributes\": [{\"id\": 100, \"value\": \"$vorname\"},{\"id\": 103, \"value\": \"$nachname\"},{\"id\": 106, \"value\": \"$meinattribut\"},{\"id\": 109, \"value\": \"$vorname_vermittler\"},{\"id\": 97,\"value\": \"{\\\"identifier\\\":\\\"ef2d14a3\\\",\\\"zipCity\":{\\\"identifier\\\":\\\"d162584f\\\",\\\"zipcode\\\":\\\"$liefer_plz\\\",\\\"city\\\":\\\"$liefer_ort\\\"},\\\"street\\\":\\\"$liefer_strasse\\\",\\\"streetNumber\\\":\\\"$liefer_nummer\\\"}\"}]}}";
+
+            let template = ({
+                    "productDto": {
+                        "productVariantId": 1,
+                        "removed": false,
+                        "attributes": [
+                            {
+                                "id": 145,
+                                "value": "true"
+                            },
+                            {
+                                "id": 193,
+                                "value": "false"
+                            },
+                            {
+                                "id": 103,
+                                "value": "14473"
+                            },
+                            {
+                                "id": 100,
+                                "value": "$betrag"
+                            },
+                            {
+                                "id": 3217,
+                                "value": "4"
+                            },
+                            {
+                                "id": 94,
+                                "value": "2021-10-09T00:00:00+02:00"
+                            },
+                            {
+                                "id": 97,
+                                "value": "{\"identifier\":\"ef2d14a3\",\"zipCity\":{\"identifier\":\"d162584f\",\"zipcode\":\"10787\",\"city\":\"Berlin\"},\"street\":\"Katharina-Heinroth-Ufer\",\"streetNumber\":\"1\"}"
+                            }
+                        ],
+                        "subproducts": [
+                            {
+                                "productVariantId": 4,
+                                "modules": [
+                                    {
+                                        "productVariantId": 4,
+                                        "removed": false,
+                                        "attributes": [
+                                            {
+                                                "id": 199,
+                                                "value": "72916"
+                                            },
+                                            {
+                                                "id": 16,
+                                                "value": "$firmenname"
+                                            },
+                                            {
+                                                "id": 40,
+                                                "value": "22704"
+                                            },
+                                            {
+                                                "id": 46,
+                                                "value": "$umstzStNr"
+                                            },
+                                            {
+                                                "id": 154,
+                                                "value": "202386"
+                                            },
+                                            {
+                                                "id": 55,
+                                                "value": "{\"identifier\":\"690a18db\",\"zipCity\":{\"identifier\":\"3a3350b5\",\"zipcode\":\"10787\",\"city\":\"Berlin\"},\"street\":\"Katharina-Heinroth-Ufer\",\"streetNumber\":\"1\"}"
+                                            },
+                                            {
+                                                "id": 43,
+                                                "value": "03021210"
+                                            },
+                                            {
+                                                "id": 109
+                                            },
+                                            {
+                                                "id": 202,
+                                                "value": "-30"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "productVariantId": 13,
+                                "modules": [
+                                    {
+                                        "productVariantId": 13,
+                                        "removed": false,
+                                        "attributes": [
+                                            {
+                                                "id": 148,
+                                                "value": "-31"
+                                            },
+                                            {
+                                                "id": 73,
+                                                "value": "KnKdw"
+                                            },
+                                            {
+                                                "id": 70,
+                                                "value": "KundanKdw"
+                                            },
+                                            {
+                                                "id": 64,
+                                                "value": "14479"
+                                            },
+                                            {
+                                                "id": 61,
+                                                "value": "user1@pronoblis-services.de"
+                                            },
+                                            {
+                                                "id": 58,
+                                                "value": "01743425436"
+                                            },
+                                            {
+                                                "id": 118
+                                            },
+                                            {
+                                                "id": 157
+                                            },
+                                            {
+                                                "id": 67
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "productVariantId": 16,
+                                "modules": [
+                                    {
+                                        "productVariantId": 16,
+                                        "removed": false,
+                                        "attributes": [
+                                            {
+                                                "id": 91,
+                                                "value": "Muster4 API Lieferant3"
+                                            },
+                                            {
+                                                "id": 88,
+                                                "value": "14434"
+                                            },
+                                            {
+                                                "id": 85,
+                                                "value": "81223"
+                                            },
+                                            {
+                                                "id": 3214,
+                                                "value": "DE217618277"
+                                            },
+                                            {
+                                                "id": 172,
+                                                "value": "202386"
+                                            },
+                                            {
+                                                "id": 79,
+                                                "value": "{\"identifier\":\"2ffb0ef4\",\"zipCity\":{\"identifier\":\"f7aaf4ea\",\"zipcode\":\"13627\",\"city\":\"Berlin\"},\"street\":\"Adam-von-Trott-Straße\",\"streetNumber\":\"7\"}"
+                                            },
+                                            {
+                                                "id": 121,
+                                                "value": "user2@pronoblis-services.de"
+                                            },
+                                            {
+                                                "id": 205,
+                                                "value": "-30"
+                                            }
+                                        ],
+                                        "subproducts": [
+                                            {
+                                                "productVariantId": 19,
+                                                "modules": [
+                                                    {
+                                                        "productVariantId": 19,
+                                                        "removed": false,
+                                                        "attributes": [
+                                                            {
+                                                                "id": 187,
+                                                                "value": "14479"
+                                                            },
+                                                            {
+                                                                "id": 184,
+                                                                "value": "List6"
+                                                            },
+                                                            {
+                                                                "id": 181,
+                                                                "value": "Liefretann6"
+                                                            },
+                                                            {
+                                                                "id": 178,
+                                                                "value": "01749689926"
+                                                            },
+                                                            {
+                                                                "id": 175,
+                                                                "value": "user2@pronoblis-services.de"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            );
+
+            template = template.replace('$betrag', document.getElementById('summe').value)
+            template = template.replace('$firmenname', document.getElementById('firmenName').value)
+            template = template.replace('$umstzStNr', document.getElementById('vat').value)
+            template = template.replace('$meinattribut', document.getElementById('foobar').value)
+            template = template.replace('$vorname_vermittler', document.getElementById('foobar2').value)
+            template = template.replace('$liefer_plz', document.getElementById('zip').value)
+            template = template.replace('$liefer_ort', document.getElementById('bar').value)
+            template = template.replace('$liefer_strasse', document.getElementById('street').value)
+            template = template.replace('$liefer_nummer', document.getElementById('streetnr').value)
+
+            document.getElementById('output').innerHTML = template;
+
+            console.log(template);
+
+
+
+            postData('https://pronoblis.freischaltportal.de/ca-rest/contract/import', template)
+                .then(data => {
+                    console.log(data); // JSON data parsed by `data.json()` call
+                });
+
+        }
+
+
+    </script>
+
+</pre>
+</body>
+</html>
